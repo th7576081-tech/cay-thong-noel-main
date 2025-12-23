@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Chế Độ - Christmas Magic</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0d0d0d;
+            background-image: radial-gradient(circle at 50% 50%, #1a2a3a 0%, #000 100%);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FF0000;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-mode {
+            text-decoration: none;
+            color: white;
+            width: 200px;
+            height: 250px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-mode:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .desc {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 10px;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Hiệu ứng tuyết rơi nhẹ */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #FFF;
+            animation: fall linear infinite;
+        }
+        @keyframes fall { to { transform: translateY(100vh); } }
+    </style>
+</head>
+<body>
+
+    <h1>🎄 MERRY CHRISTMAS 🎄<br><span style="font-size: 1.5rem; color: #fff;">Chọn cách bạn muốn trải nghiệm</span></h1>
+
+    <div class="container">
+        <a href="index_click.html" class="btn-mode">
+            <div class="icon">🖱️</div>
+            <div class="title">Thủ Công</div>
+            <div class="desc">Dùng chuột hoặc vuốt màn hình cảm ứng để xoay và xem ảnh.</div>
+        </a>
+
+        <a href="index_camera.html" class="btn-mode">
+            <div class="icon">📷</div>
+            <div class="title">Camera AI</div>
+            <div class="desc">Dùng cử chỉ tay (Nắm, Xòe, OK) để điều khiển phép thuật.</div>
+        </a>
+    </div>
+
+    <script>
+        // Tạo hiệu ứng tuyết rơi đơn giản
+        function createSnow() {
+            const snow = document.createElement('div');
+            snow.innerHTML = '❄';
+            snow.className = 'snowflake';
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.fontSize = Math.random() * 20 + 10 + 'px';
+            snow.style.opacity = Math.random();
+            snow.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(snow);
+            setTimeout(() => snow.remove(), 5000);
+        }
+        setInterval(createSnow, 100);
+    </script>
+</body>
+</html>
